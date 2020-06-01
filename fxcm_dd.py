@@ -6,16 +6,17 @@ import pandas as pd
 import datetime as dt
 
 df = []
-year_list = range(2010,2019)
-month_list = [1,7]
+yr = 2009
 
-for yr in year_list:
+while yr <= 2019:
     df_temp1 = con.get_candles('GBP/JPY', period='m15', start=dt.datetime(yr,1,1), end=dt.datetime(yr,6,30))
     df_temp2 = con.get_candles('GBP/JPY', period='m15', start=dt.datetime(yr,7,1), end=dt.datetime(yr,12,31))
     df.append(df_temp1)
     df.append(df_temp2)
+    
+    yr = yr+1
 
 
 result = pd.concat(df)
 result.to_csv('/workspace/fxf/test.csv')
- 
+print("Done!")
