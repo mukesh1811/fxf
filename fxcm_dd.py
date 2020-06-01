@@ -18,5 +18,5 @@ while yr <= 2019:
 
 
 result = pd.concat(df)
-result.to_csv('/workspace/fxf/test.csv')
+result.to_csv('/workspace/fxf/data/test.csv')
 print("Done!")
