@@ -48,5 +48,5 @@ df21=pd.DataFrame()
 df21= con.get_candles('GBP/JPY', period='m15', start=dt.datetime(2020,1,1), end=dt.datetime(2020,5,1))
 frame = [df1,df2,df3,df4,df5,df6,df7,df8,df9,df10,df11,df12,df13,df14,df15,df16,df17,df18,df19,df20,df21]
 result = pd.concat(frame)
-result.to_csv('D:\final work\result123.csv')
+result.to_csv('/workspace/fxf/test.csv')
  
