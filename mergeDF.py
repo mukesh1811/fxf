@@ -1,24 +1,20 @@
 import os
 import pandas as pd
 
-df_initiated = False
-local_path = "C://Stuff/FxF/nse/dataAutoDownload/"
+df = pd.DataFrame()
+
+dest_path = "D://myMisc/dev/pp/data/"
+daily_files_path = "D://myMisc/dev/pp/data/daily/"
 
 count = 0
 
-for file in os.listdir(local_path):
+
+for file in os.listdir(daily_files_path):
     
     count = count + 1
 
-    if df_initiated:
-                
-        df = df.append(pd.read_csv(local_path + file))
-
-    else:
-        df = pd.read_csv(local_path + file)
-        df_initiated = True
-
+    df = df.append(pd.read_csv(daily_files_path + file),sort=False)
     
 print(count)
 print(len(df)) 
-df.to_csv(local_path + "master_db.csv",index=False)
+df.to_csv(dest_path + "master_db.csv",index=False)
